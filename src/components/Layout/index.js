@@ -1,0 +1,1 @@
+export {default as HeaderOnly } from '~/components/HeaderOnly'
