@@ -3,7 +3,11 @@
 
 :root {
     --primary: #fe2c55;
+    --black: black;
+    --gray: #7d7d7d;
+    --text-color: #333;
 
+    --search-height: 46px;
     --default-layout-header-height: 60px;
     --default-layout-width: 1150px;
     --default-side-bar-width: 356px;
@@ -24,4 +28,14 @@ body {
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
+    color: var(--text-color);
+}
+
+button, input, [tabindex] {
+    border: none;
+    outline: none;
+}
+
+a[href] {
+    color: var(--text-color);
 }
