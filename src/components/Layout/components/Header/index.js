@@ -7,9 +7,11 @@ import "tippy.js/dist/tippy.css"; // optional
 import { useEffect, useState } from "react";
 import { Wrapper as PopperWrapper } from "../../../Popper";
 import AccountItem from "../../../AccountItem";
+import Button from "../../../Button";
 import {
   faCircleXmark,
   faMagnifyingGlass,
+  faPlus,
   faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -17,8 +19,9 @@ const cx = classNames.bind(styles);
 
 function Header() {
   const [searchResult, setSearchResult] = useState([]);
+
   useEffect(() => {
-    setTimeout(() => setSearchResult([1, 2, 3]), 300);
+    setTimeout(() => setSearchResult([]), 300);
   }, []);
   return (
     <header className={cx("wrapper")}>
@@ -54,8 +57,9 @@ function Header() {
             </div>
           </Tippy>
         </div>
-        <div className={cx("upload")}>
-          <button>Upload</button>
+        <div className={cx("actions")}>
+          <Button text>Upload</Button>
+          <Button primary>Log in</Button>
         </div>
       </div>
     </header>
