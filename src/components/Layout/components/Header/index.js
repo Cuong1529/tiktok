@@ -10,10 +10,12 @@ import AccountItem from "../../../AccountItem";
 import Button from "../../../Button";
 import {
   faCircleXmark,
+  faEllipsisVertical,
   faMagnifyingGlass,
   faPlus,
   faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
+import Menu from "../../../Popper/Menu";
 
 const cx = classNames.bind(styles);
 
@@ -60,6 +62,11 @@ function Header() {
         <div className={cx("actions")}>
           <Button text>Upload</Button>
           <Button primary>Log in</Button>
+          <Menu>
+            <button className={cx("more-btn")}>
+              <FontAwesomeIcon icon={faEllipsisVertical} />
+            </button>
+          </Menu>
         </div>
       </div>
     </header>
