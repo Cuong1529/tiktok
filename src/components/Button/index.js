@@ -10,48 +10,50 @@ function Button({
   primary = false,
   outline = false,
   text = false,
+  rounded = false,
+  disabled = false,
   small = false,
   large = false,
-  disabled = false,
-  rounded = false,
+  children,
+  className,
   leftIcon,
   rightIcon,
-  children,
   onClick,
   ...passProps
 }) {
   let Comp = "button";
-  const classes = cx("wrapper", {
-    primary,
-    outline,
-    small,
-    large,
-    text,
-    disabled,
-    rounded,
-  });
-
   const props = {
     onClick,
     ...passProps,
   };
 
+  // Remove event listener when btn is disabled
   if (disabled) {
-    delete props.onClick;
-
-    //remove event if button disabled
-    // Object.keys(props).forEach((key) => {
-    //   if (key.startsWith("on") && typeof props[key] === "function") {
-    //     delete props[key];
-    //   }
-    // });
+    Object.keys(props).forEach((key) => {
+      if (key.startsWith("on") && typeof props[key] === "function") {
+        delete props[key];
+      }
+    });
   }
 
   if (to) {
-    props.to = Link;
+    props.to = to;
+    Comp = Link;
   } else if (href) {
     props.href = href;
+    Comp = "a";
   }
+
+  const classes = cx("wrapper", {
+    [className]: className,
+    primary,
+    outline,
+    text,
+    disabled,
+    rounded,
+    small,
+    large,
+  });
 
   return (
     <Comp className={classes} {...props}>
@@ -61,5 +63,4 @@ function Button({
     </Comp>
   );
 }
-
 export default Button;

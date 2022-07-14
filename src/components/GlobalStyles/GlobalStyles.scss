@@ -8,6 +8,8 @@
     --text-color: #333;
     --white: #fff;
 
+    --font-family: 'ProximaNova', sans-serif;
+
     --search-height: 46px;
     --default-layout-header-height: 60px;
     --default-layout-width: 1150px;
@@ -37,6 +39,7 @@ button, input, [tabindex] {
     outline: none;
 }
 
-a[href] {
+a {
     color: var(--text-color);
+    text-decoration: none;
 }
